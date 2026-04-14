@@ -1,0 +1,329 @@
+:root {
+  --bg: #ffffff;
+  --paper: transparent;
+  --ink: #111111;
+  --muted: #4f4f4f;
+  --line: rgba(0, 0, 0, 0.14);
+  --accent: #111111;
+  --accent-soft: #f2f2f2;
+  --max-width: 860px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+}
+
+body::before {
+  content: none;
+}
+
+body::after {
+  content: none;
+}
+
+.math-background {
+  position: absolute;
+  inset: 0 0 auto 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.math-background svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.math-background .curve-teal {
+  stroke: rgba(0, 122, 135, 0.1);
+}
+
+.math-background .curve-red {
+  stroke: rgba(194, 75, 58, 0.09);
+}
+
+.math-background .curve-blue {
+  stroke: rgba(90, 103, 216, 0.085);
+}
+
+.math-background .curve-black {
+  stroke: rgba(0, 0, 0, 0.075);
+}
+
+.math-background .point-neutral {
+  fill: rgba(0, 0, 0, 0.11);
+}
+
+.math-background .point-teal {
+  fill: rgba(0, 122, 135, 0.14);
+}
+
+.math-background .point-red {
+  fill: rgba(194, 75, 58, 0.12);
+}
+
+.math-background .point-blue {
+  fill: rgba(90, 103, 216, 0.12);
+}
+
+.math-equations {
+  position: absolute;
+  inset: 0 0 auto 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.math-equation {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.42);
+  font-size: 1.12rem;
+  line-height: 1.2;
+  max-width: 280px;
+  transform: rotate(0deg);
+}
+
+.math-equation--strong {
+  color: rgba(0, 0, 0, 0.52);
+}
+
+.math-equations.is-pending {
+  opacity: 0;
+}
+
+.math-equation .MathJax {
+  overflow: visible;
+}
+
+.math-equation mjx-container[jax="SVG"] {
+  opacity: 1;
+}
+
+.page-shell {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+  padding: 1.4rem 0 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+  padding: 0 0 1rem;
+  margin-bottom: 1.2rem;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.wordmark,
+.site-nav a,
+.quick-facts a,
+.simple-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.wordmark {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.site-nav a:hover,
+.quick-facts a:hover,
+.simple-list a:hover,
+.text-panel a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.nav-toggle {
+  display: none;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--ink);
+  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  font-weight: 400;
+}
+
+.hero {
+  display: block;
+  padding: 0.2rem 0 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  position: relative;
+}
+
+.hero-copy {
+  padding: 0;
+}
+
+.eyebrow {
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 2.9rem);
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+p {
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.hero-text {
+  max-width: 60ch;
+  font-size: 1rem;
+  margin: 0.4rem 0 1.2rem;
+}
+
+.quick-facts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.quick-facts li {
+  padding: 0;
+  border: 0;
+  color: var(--ink);
+}
+
+.quick-facts span {
+  display: inline;
+  margin-right: 0.35rem;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.section {
+  margin-top: 1.8rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.section-heading {
+  display: grid;
+  gap: 0.15rem;
+  margin-bottom: 0.6rem;
+}
+
+.text-panel {
+  padding: 0;
+}
+
+.simple-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.simple-list li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 960px) {
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    width: min(calc(100% - 1rem), var(--max-width));
+    padding-top: 0.6rem;
+  }
+
+  .site-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .math-equation {
+    display: none;
+  }
+}
